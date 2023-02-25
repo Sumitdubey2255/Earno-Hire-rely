@@ -1,0 +1,113 @@
+<html>
+<head>
+<link rel="icon" href="images/logo.ico">
+<title>Payment form</title>
+<style>
+    *{margin: 0;
+    padding: 0;
+    font-family: Britanica ExtraBold;
+    box-sizing: border-box;
+    
+}
+.formmain{
+    width: 80%;
+}
+.container{
+    margin-top: 100px;
+    width:37%;
+    height:600px;
+    position: absolute;
+    margin-left: 35%;
+    border-radius: 20px;
+background-color: black;
+
+}
+.container .form1{
+    
+    text-align: center;
+    padding-top:50px;
+    color:aqua;
+    
+}
+h3{
+
+    padding-top: 0;
+}
+button{
+    width:200px;
+    padding:15px 0;
+    text-align: center;
+    margin:20px 10px;
+    border-radius:25px;
+    font-weight: bold;
+    border:2px solid aqua;
+    background: transparent;
+    color:#fff;
+    cursor:pointer;
+    position: relative;
+    overflow: hidden;
+    z-index:2;
+    font-size: 20px;
+}
+span
+{
+    background: aqua;
+    height:100%;
+    width:0%;
+    border-radius: 20px;
+    position:absolute;
+    left:0;
+    bottom:0;
+    z-index:-1;
+    transition:0.5s;
+}
+button:hover span{
+    width:100%;
+    
+}
+button:hover{
+    color:black;
+}
+.inpfield{
+    margin-top: 15px;
+    font-size: 25px;
+    padding:2%;
+    border-radius:5px;
+    text-align: center;
+    
+}
+
+a{
+    color:rgb(252, 252, 252);
+}
+
+</style>
+</head>
+
+<body>
+    <section class="formmain">
+    <div class="container">
+    <div class="form1">
+        <form action="payments.php" method="POST">
+            <h3> Pre order price is fix Rupees:- 100/-</h3>
+
+                <h3>If you agree with service you can proceed the payment at Location.
+            </h3><br><br>
+            <input type="text" class="inpfield" name="name" placeholder="Your full name" required> <br>
+            <input type="email" class="inpfield" name="email" placeholder="Your email ID" required> <br>
+            <input type="text" class="inpfield" name="mobile" placeholder="Your Phone Number" required> <br><br>
+            <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" required>
+            <label for="vehicle1"><a href="#"> Terms & Condition</a> </label><br>
+            <button type="submit" class="button"><span></span> Pay Now</button><br>OR BY
+        </form>
+           <a href="cod.php"><button><span></span>Cash On Service</button></a> <br>
+    </div>
+    
+   
+    </div>
+    </section>
+    
+    
+</body>
+
+</html>

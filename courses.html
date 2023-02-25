@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="images/logo.ico">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course</title>
+    <!-- <link rel="stylesheet" href="index.css"> -->
+    <!-- <link rel="stylesheet" href="css/footer.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root{
+    --thirdcolor: #cecece;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    --black:#FFFEEB;
+    --white:#fdfff5;
+    font-family: Britanica ExtraBold;
+}
+
+
+*::selection{
+  background:var(--black);
+  color:#fff;
+}
+/* ----------------------------for custom scroll bar--------------------------- */
+*::-webkit-scrollbar{
+    width: 5px;
+    height: 2px;
+ }
+ 
+ *::-webkit-scrollbar-track{
+    background-color: transparent;
+ }
+ 
+ *::-webkit-scrollbar-thumb{
+    background-color:#00000092;
+ }
+ /* --------------------------------------------------------------------------- */
+body{
+    background-color: var(--black);
+}
+        .logo{
+            margin-top: -90px;
+            margin-left: 20px;
+        }
+        header{
+            padding: 15px;
+            /* backdrop-filter: blur(10px); */
+            position: absolute;
+            /* padding-top: -90px; */
+            height: 80px;
+            z-index: 999;
+        }
+        .navbar{
+            float:right;
+            text-decoration: none;
+            margin-top: -65px;
+            margin-left: 600px;
+        
+        }
+        .navbar a{
+            margin-left: 10px;
+            background-color: #111;
+            padding: 10px 15px;
+            font-weight: 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            color:white;
+            
+
+        }
+        .navbar a:hover{
+            border-style: solid;
+            background-color: #FFFEEB;
+            color:black;
+            border-color:#111;
+            transition: 50ms all ease-in-out;
+            padding-top: 14px 24px;
+            font-weight: 40px;
+        }
+.title{
+    margin-top: 5px;
+    font-size: 60px;
+    font-weight: 600;
+    line-height: 40px;
+    text-align: center;
+    color:black
+}
+
+.title-1{
+    text-align: center;
+    font-size: 40px;
+    font-weight: 200;
+    color:rgb(18, 87, 143);
+}
+
+.text{
+    margin-top: 5px;
+    color: var(--thirdcolor);
+    font-feature-settings: 1.3em;
+    font-weight: 400;
+    font-size: 20px;
+    margin-bottom: 0px;
+}
+
+.jobTitle{
+    font-size: 40px;
+    font-weight: 400;
+    margin-top: 5px;
+    color: #fdfff5;
+}
+
+.cost{
+    margin-top: 0px;
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.course{
+    padding: 8vw 8vw 0 8vw;
+    text-align: center;
+}
+
+.course, .courses{
+    text-align: start;
+    height: 100%;
+    position: relative;
+}
+
+.courses{
+    background-color: rgb(50, 105, 150);
+}
+
+.course, .courses img{
+    margin-top: 100px;
+    width: 100%;
+    height: 240px;
+    background-size: cover;
+    border-radius: 9px;
+    background-position: center;
+}
+
+.course img:hover{
+    transition: 50ms all ease-in-out;
+    height: 260px;
+}
+
+.courses, .course-box{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-gap: 1rem;
+    margin-top: 20px;
+}
+
+.courses, .course-box .deatils{
+    padding: 15px 15px 0 15px;
+    border-radius: 9px;
+}
+
+.star{
+    color: #FDC93B;
+    font-size:  .9rem;
+}
+
+.details{
+    margin-top: 0px;
+}
+
+.button{
+    margin-top: 5px;
+    padding: 5px 10px;
+    width: 65px;
+    background-color:  rgb(60, 138, 226);
+    color: #000000;
+    border-radius: 9px;
+}
+
+.button:hover{
+    border-style: solid;
+    background-color: #0044ff;
+    color:aqua;
+    transition: 50ms all ease-in-out;
+    padding-top: 10px 20px;
+    font-weight: 40px;
+}
+/* .footer{
+  
+  color: white;
+  width: 100%;
+  font-size: 2rem;
+  color:#fff;
+  background: linear-gradient(to right,#00093c, #2d0b00);
+  color: #fff;
+  /* padding: 100px 0 30px; 
+  margin-top: 300px;
+  border-top-left-radius:105px;
+  border-top-right-radius:105px;
+  font-size: 13px;
+  line-height: 20px;
+  position:absolute;
+  padding:2.5rem 1.5rem;
+  /*padding: 50px 100px;
+}
+.row{
+  width: 85%;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+.col{
+  flex-basis: 25%;
+  padding: 10px;
+}
+.col:nth-child(2), .col:nth-child(3){
+  flex-basis: 15%;
+}
+.logo{
+  width: 80px;
+  margin-bottom: 30px;
+}
+.col h3{
+  width: fit-content;
+  margin-bottom: 40px;
+  position: relative;
+}
+.email{
+  width: fit-content;
+  border-bottom: 1px solid #ccc;
+  margin: 20px 0;
+}
+.footer .col ul li {
+  list-style: none;
+  margin-bottom: 12px;
+}
+.footer .col ul li a{
+  text-decoration: none;
+  color: #fff;
+}
+form{
+  padding-bottom: 15px; 
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 50px;
+}
+form .fa-regular{
+  font-size: 18px;
+  margin-right: 10px;
+}
+form input{
+  width: 100%;
+  background: transparent;
+  color: #ccc;
+  border: 0;
+  outline: none;
+
+}
+form button{
+  background: transparent;
+  border: 0;
+  outline: none;
+  cursor: pointer;
+
+}
+form button .fa-solid{
+  font-size: 16px;
+  color: #ccc;
+}
+
+.social-icons {
+  display: flex;
+  margin-top: 0.5rem;
+}
+
+.social-icons a {
+  width: 60px;
+  height: 60px;
+  border-radius: 5px;
+  background: linear-gradient(to right,#00093c, #2d0b00);
+  color: #fff;
+  text-align: center;
+  line-height: 35px;
+  margin-right: 10px;
+  transition: 0.3s;
+}
+
+.social-icons a:hover {
+  transform: scale(1.05);
+}
+
+hr{
+  width: 90%;
+  border: 0;
+  border-bottom: 1px solid #ccc;
+  margin: 20px auto;
+}
+.copyright{
+  text-align: center;
+}
+.underline{
+  width: 100%;
+  height: 5px;
+  background: #767676;
+  border-radius: 3px;
+  position: absolute;
+  top: 25px;
+  left: 0;
+  overflow: hidden;
+}
+.underline span{
+  width: 15px;
+  height: 100%;
+  background:#fff;
+  border-radius: 3px;
+  position: absolute;
+  top: 0;
+  left: 10px;
+  animation: moving 2s linear infinite;
+}
+@keyframes moving{
+  0%{
+      left:-20px;
+  }
+  100%{
+      left:100%;
+  } 
+
+}
+@media  (max-width: 700px)
+{
+  footer{
+      bottom: unset;
+  }
+  .col{
+      flex-basis: 100%;
+      
+  }
+  .col:nth-child(2), .col:nth-child(3){
+      flex-basis: 100%;
+  }
+} */
+    </style>
+
+
+
+</head>
+<body>
+    <header>
+        <br/>
+        <div class="logo">
+            <img src="images/Earnohire2.png" alt="">
+        </div>
+        <br/>
+        <br/>
+        <div class="navbar">
+            <a href="#" class="active">Home</a>
+            <a href="Knowmore.html">About Us</a>
+            <a href="request.php">Requests</a> 
+            <a href="#blog">Blog</a>    
+            <a href="courses.html">Courses</a>  
+            <a href="sp_profile.php">My Account</a>
+            <a href="contact.html">Contact</a>
+            <a href="#" onclick="return confirm('are your sure you want to logout?');" class="delete-btn">Log Out</a>
+        </div>
+    </header>
+    <section class="course">
+        <h1 class="title">Our Popular Courses</h1>
+        <p class="title-1">-Learn -Get Skills -Earn</p>
+    <div class="course-box">
+
+        <div class="courses">
+            <img src="./images/Electrician.jpg" alt="">
+            <div class="details">
+                <span class="text">Updated 21/1/23 </span>
+                <h6 class="jobTitle">Electrican Course</h6>
+                <div class="star">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <div class="button">
+                    <a href="content.html" style="text-decoration: none;"><h3>Read</h3></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="courses">
+            <img src="./images/PlumbingCheckup.jpg" alt="">
+            <div class="details">
+                <span class="text">Updated 06/6/22 </span>
+                <h6 class="jobTitle">Plumbing Course</h6>
+                <div class="star">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <div class="button">
+                    <a href="content.html" style="text-decoration: none;"><h3>Read</h3></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="courses">
+            <img src="./images/CateringSolutions.jpeg" alt="">
+            <div class="details">
+                <span class="text">Updated 09/9/22 </span>
+                <h6 class="jobTitle">Catering Course</h6>
+                <div class="star">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <div class="button">
+                    <a href="content.html" style="text-decoration: none;"><h3>Read</h3></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="courses">
+            <img src="./images/InteriorDesigner.jpg" alt="">
+            <div class="details">
+                <span class="text">Updated 06/3/22 </span>
+                <h6 class="jobTitle">Interior Design Course</h6>
+                <div class="star">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <div class="button">
+                    <a href="content.html" style="text-decoration: none;"><h3>Read</h3></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="courses">
+            <img src="./images/room decorations.jpg" alt="">
+            <div class="details">
+                <span class="text">Updated 21/8/22 </span>
+                <h6 class="jobTitle">Furniture design Course</h6>
+                <div class="star">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <div class="button">
+                    <a href="content.html" style="text-decoration: none;"><h3>Read</h3></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="courses">
+            <img src="./images/electronicrepairs.jpeg" alt="">
+            <div class="details">
+                <span class="text">Updated 19/09/21 </span>
+                <h6 class="jobTitle">Computer Repairing Course</h6>
+                <div class="star">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <div class="button">
+                    <a href="content.html" style="text-decoration: none;"><h3>Read</h3></a>
+                </div>
+            </div>
+        </div>
+        
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+
+        
+        <!-- <div class="footer">
+            <div class="row">
+                <div class="col">
+                    <img src="./images/Earnohire2.png" class="logo" alt="h">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                        Alias facilis similique ex enim culpa quam in praesentium quis
+                         dolores eius?Lorem ipsum dolor sit amet.</p>
+                </div>
+                <div class="col">
+                    <h3>Office <div class="underline"><span></span></div></h3>
+                    <p>Thane station road</p>
+                    <p>near talav pali</p>
+                    <p>mumbai maharastra</p>
+                    <p class="email">rely.co.earno_haire@gmail.com</p>
+                    <h3>+91-9898500038</h3>
+                </div>
+                <div class="col">
+                    <h3>Links <div class="underline"><span></span></div></h3>
+                   <ul>
+                    <li> <a href=""> Home</a></li>
+                       <li> <a href="">Services</a></li>
+                       <li> <a href="">About Us</a></li>
+                        <li><a href="">Features</a></li>
+                       <li> <a href="">Contact</a></li>
+                   </ul>
+                </div>
+                <div class="col">
+                    <h3>Newsletter <div class="underline"><span></span></div></h3>
+                    <form action="">
+                        <i class="fa-regular fa-envelope"></i>
+                        <input type="email" placeholder="Enter your Email Id" required>
+                        <button type="submit"><i class="fa-solid fa-arrow-right"></i></button>
+                    </form>
+                    <div class="social-icons">
+                        <i class="fa fa-whatsapp"></i>
+                        <i class="fa fa-instagram"></i>
+                        <i class="fa fa-telegram"></i>
+                        <i class="fa fa-twitter"></i>
+                        
+                    </div>
+                </div>
+            </div>
+            <hr><p class="copyright">Rely Corporate @ 2023 - All Right Reserved</p>
+        </div> -->
+    </div>
+    </section>
+</body>
+</html>

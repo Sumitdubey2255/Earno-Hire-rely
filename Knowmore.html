@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="icon" href="images/logo.ico">
+    <title>Know More Page</title>
+    <style>
+        style>
+        *{
+    --black:#FFFEEB;
+    --white:#fdfff5;
+    font-family: Britanica ExtraBold;
+    text-decoration: none;
+}
+*{
+  margin:0; 
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  outline: none; border:none;
+  transition: .2s linear;
+  text-transform: capitalize;
+
+}
+*::selection{
+  background:var(--black);
+  color:#fff;
+}
+/* ----------------------------for custom scroll bar--------------------------- */
+*::-webkit-scrollbar{
+    width: 5px;
+    height: 2px;
+ }
+ 
+ *::-webkit-scrollbar-track{
+    background-color: transparent;
+ }
+ 
+ *::-webkit-scrollbar-thumb{
+    background-color:#00000092;
+ }
+ /* --------------------------------------------------------------------------- */
+body{
+    background-color:#FFFEEB;
+    background-attachment: fixed;
+}
+.logo{
+    margin-top: 20px;
+    margin-left: 20px;
+}
+header{
+    backdrop-filter: blur(10px);
+    position: fixed;
+    height: 80px;
+    z-index: 999;
+}
+.navbar{
+    float:right;
+    text-decoration: none;
+    
+    margin-top: -65px;
+    margin-left: 800px;
+   
+}
+.navbar a{
+    margin-left: 10px;
+    background-color: #111;
+    padding: 10px 15px;
+    font-weight: 30px;
+    text-decoration: none;
+    border-radius: 5px;
+    color:white;
+    
+
+}
+.navbar a:hover{
+    border-style: solid;
+    background-color: #FFFEEB;
+    color:black;
+    border-color:#111;
+    transition: 50ms all ease-in-out;
+    padding-top: 14px 24px;
+    font-weight: 40px;
+}
+.text{
+    color:black;
+    font-size:25px;
+    margin-top: -400px;
+    margin-left: 100px;
+    z-index:3;
+}
+.text p{
+    font-size:large;
+    margin-bottom:70px;
+}
+.text a{
+    background-color:#111;
+    margin-left: 80px;
+    padding: 13px 18px;
+    font-weight: 26px;
+    text-decoration: none;
+    border-radius: 50px;
+    color:white;
+    margin-top: 40px;
+   
+    
+
+}
+.text a:hover{
+    border-style: solid;
+    background-color: #fff;
+    color:black;
+    border-color: #111;
+    transition: 50ms all ease-in-out;
+    padding-top: 14px 24px;
+    font-weight: 40px;
+}
+.vid1{
+    height:45%;
+    width: 45%;
+    z-index:-1;
+    margin-top: 150px;
+    margin-left: 800px;
+    border-radius: 50px;
+}
+
+.step-container{
+    margin-top: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    
+  }
+  
+  .step-container .step{
+    background:#fff;
+    margin:20px;
+    padding:20px;
+    padding-bottom: 50px;
+    border-radius: .5rem;
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.9);
+    text-align: center;
+    flex:1 1 20px;
+    font-family: Britanica Regular;
+  }
+  
+  .step-container .step span{
+    font-size: 50px;
+    color:black;
+    
+  }
+  
+  .step-container .step h3{
+    font-size: 30px;
+    color:black;
+  }
+  
+  .step-container .step p{
+    font-size: 20px;
+    color:#666;
+    padding:15px 0;
+  }
+.btn{
+    background-color: black;
+    font-size: 15px;
+    border-radius: 8px;
+    color:white;
+    padding: 10px 20px;
+
+}
+.btn:hover{
+    border-style: solid;
+    border-color: black;
+    background-color: #ffffffa9;
+    color:black;
+
+}
+.vendor .heading{
+   
+    font-size: 40px;
+    text-align: center;
+    opacity: 0.5;
+    padding-top: 200px;
+}
+
+.vendor .box-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding-left: 50px;
+    padding-right: 50px;
+    
+  }
+  
+  .vendor .box-container .box{
+    flex:1 1 30rem;
+    margin:1rem;
+    overflow: hidden;
+    position: relative;
+    border-radius: .5rem;
+    box-shadow:0 .5rem 1rem rgba(0,0,0,.9);
+    height: 25rem;
+    cursor: pointer;
+    
+  }
+  
+  .vendor .box-container .box img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+  
+  .vendor .box-container .box .info{
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top:0; left: 0;
+    height: 100%;
+    width: 100%;
+    background:rgba(255,255,255,.8);
+    text-align: center;
+    transform: scale(1.3);
+    opacity: 0;
+  }
+  
+  .vendor .box-container .box:hover .info{
+    transform: scale(1);
+    opacity: 1 ;
+    transition: 0.2s ease-in-out;
+  }
+  
+  .vendor .box-container .box:hover img{
+    transform: scale(1.3);
+  }
+  
+  .vendor .box-container .box .info h3{
+    font-size: 3rem;
+    color:black;
+    margin-bottom: -5px;
+  }
+  
+  .vendor .box-container .box .info p{
+    font-size: 1.7rem;
+    color:#333;
+    padding:1rem;
+ 
+  }
+  .clients .row{
+  height: 300px;
+  width:400px;
+ 
+  }
+  .clients .row .box-container .info h3{
+    font-size: 60px;
+    margin-left: 50px;
+    min-width: 300px;
+    
+  }
+  .clients .row .box-container{
+    margin-left:-100px;
+  }
+
+ .clients .chead{
+  font-size: 30px;
+  margin-left:100px;
+  min-width: 1200px;
+
+ }
+ .clients .row{
+  display: flex;
+}
+
+.clients .row .divider{
+  padding:0rem 1rem;
+}
+
+.clients .row .box-container .box img{
+  height: 400px;
+  width:400px;
+  object-fit: cover;
+  border-radius: .5rem;
+  border:2rem solid #fff;
+  box-shadow: 0 .5rem 1rem rgba(0,0,0,.9);
+}
+
+.clients .row .box-container .box .info{
+  padding:20px 0;
+}
+
+.clients .row .box-container .box .info h3{
+  font-size: 2.5rem;
+  color:black;
+}
+
+.clients .row .box-container .box .info p{
+  font-size: 1.5rem;
+  color:#060606;
+  padding:800x 100px;
+  font-style: italic;
+}
+
+.clients .row .box-container .box .info p i{
+  color:black;
+  padding:0 0.5rem;
+}
+.footer{
+  
+	color: white;
+	width: 100%;
+	font-size: 2rem;
+    color:#fff;
+    background: linear-gradient(to right,#00093c, #2d0b00);
+    color: #fff;
+    /* padding: 100px 0 30px; */
+    margin-top: 300px;
+    border-top-left-radius:105px;
+    border-top-right-radius:105px;
+    font-size: 13px;
+    line-height: 20px;
+	position:absolute;
+	padding:2.5rem 1.5rem;
+	/*padding: 50px 100px;*/
+}
+.row{
+    width: 85%;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+.col{
+    flex-basis: 25%;
+    padding: 10px;
+}
+.col:nth-child(2), .col:nth-child(3){
+    flex-basis: 15%;
+}
+.logo{
+    width: 80px;
+    margin-bottom: 30px;
+}
+.col h3{
+    width: fit-content;
+    margin-bottom: 40px;
+    position: relative;
+}
+.email{
+    width: fit-content;
+    border-bottom: 1px solid #ccc;
+    margin: 20px 0;
+}
+.footer .col ul li {
+    list-style: none;
+    margin-bottom: 12px;
+}
+.footer .col ul li a{
+    text-decoration: none;
+    color: #fff;
+}
+form{
+    padding-bottom: 15px; 
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 50px;
+}
+form .fa-regular{
+    font-size: 18px;
+    margin-right: 10px;
+}
+form input{
+    width: 100%;
+    background: transparent;
+    color: #ccc;
+    border: 0;
+    outline: none;
+
+}
+form button{
+    background: transparent;
+    border: 0;
+    outline: none;
+    cursor: pointer;
+
+}
+form button .fa-solid{
+    font-size: 16px;
+    color: #ccc;
+}
+
+.social-icons {
+    display: flex;
+    margin-top: 0.5rem;
+  }
+  
+  .social-icons a {
+    width: 60px;
+    height: 60px;
+    border-radius: 5px;
+    background: linear-gradient(to right,#00093c, #2d0b00);
+    color: #fff;
+    text-align: center;
+    line-height: 35px;
+    margin-right: 10px;
+    transition: 0.3s;
+  }
+  
+  .social-icons a:hover {
+    transform: scale(1.05);
+  }
+  
+hr{
+    width: 90%;
+    border: 0;
+    border-bottom: 1px solid #ccc;
+    margin: 20px auto;
+}
+.copyright{
+    text-align: center;
+}
+.underline{
+    width: 100%;
+    height: 5px;
+    background: #767676;
+    border-radius: 3px;
+    position: absolute;
+    top: 25px;
+    left: 0;
+    overflow: hidden;
+}
+.underline span{
+    width: 15px;
+    height: 100%;
+    background:#fff;
+    border-radius: 3px;
+    position: absolute;
+    top: 0;
+    left: 10px;
+    animation: moving 2s linear infinite;
+}
+@keyframes moving{
+    0%{
+        left:-20px;
+    }
+    100%{
+        left:100%;
+    } 
+
+}
+@media  (max-width: 700px)
+{
+    footer{
+        bottom: unset;
+    }
+    .col{
+        flex-basis: 100%;
+        
+    }
+    .col:nth-child(2), .col:nth-child(3){
+        flex-basis: 100%;
+    }
+}
+    </style>
+    
+    </style>
+    </head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="images/Earnohire2.png" alt="">
+        </div>
+        <div class="navbar">
+            <a href="index.html#home" class="active">Home</a>
+            <a href="#">About us</a>
+            <a href="services.php">Services</a>
+            <a href="#">Blog</a>
+            <a href="#">Contact</a>
+            <a href="login.php">Sign in</a>
+            <a href="register.php">Register</a>
+        </div>
+        </div>
+	</header>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <div id="Aboutus">
+        <p>Earno'hire is a website which offers job opportunities & connect service providers which are in this case a Unemployed Individual directly to the 
+        customer.Earno'hire mainly focuses in up scaling the current working population in sectors like Electricians,Plumbing,Catering ,etc.Earno'hire
+        has multiple freelancing options and also provide opportunities to get hired by companies.Our Marketplace allows listing of services or jobs which can 
+        picked up or selected by the Unemployed individual for immediate compensation.If the individual has no prior expereince he/she can learn from our online 
+        courses and upscale themselves.Services providers have to go through multiple quality checks to validate if service provider is capable or is in correct state 
+        to offer service to the user.</p>
+        <br>
+        <ul>
+        <li><h2>How does our website work?</h2></li>
+        <div id="typeofimg">
+        <img src="images/Typeofuser.png" >
+        </div>
+        <p>The Users are divided into 2 parts Customer and Service Provider.Customer list their requirements on the website and 
+            a service provider accept the offer.When these service charges are set by us accordingly to the Industry Standards.
+            After user received the services he/she rates the customer provider and on the basis of rating service provider receives incentives and 
+            earn a tokens.Higher the number of the tokens shows expereince and quality of service provider.This helps in encouraging service provider
+            to give better services . 
+        </p>
+            </ul>
+        
+        
+        
+        <hr>
+
+        </div>
+        <div id="Services">
+            <div class="Electricalcheckup">
+                <ul>
+                <li><a href="#ElectricalCheckup"></a><h2>Electrical Checkup</h2></a></li>
+                <p>
+                    All electrical installations/wiring will deteriorate with age and use. However, most home owners often overlook the wiring condition. At the most, an electrical safety inspection will only be called when a breaker has already been tripped or a fuse has already been blown. It is not surprising that an electrical fault is a common cause for house fires.
+Having your electrical wiring inspected is one of the most important things to keep your home safe from electrical hazards. You don't want to risk the lives of your loved ones, nor getting your property damaged due to electrical fires. Therefore, electrical safety should be a top priority in your home.
+
+    <br><br>A proper electrical safety inspection will:<br><ul>
+    <li>Identify electrical wiring and components that may have degraded over time.</li>
+    <li>Reveal if any electrical circuits are overloaded.</li>
+    <li>Reveal if any lack of earthing.</li>
+    <li>Identify any defective wiring or other mistakes made by non-certified electricians or DIY home-owners.</li>
+    <li>Spot oversized fuses or breakers that may cause an electrical fire hazard.</li>
+    <li>Find any potential electric shock risks.</li></ul></p></ul><hr>
+                    </p>
+                </div>
+            <div class="plumbing" >
+                <ul>
+                    <li><a href="#plumbing"></a><h2>Plumbing</h2></li>
+                   
+                    <p>A plumbing inspection consists of the following: A check of your home's filtration systems. A check of your fixtures, drains, toilets, 
+                        showers/ tubs and supply lines. A check of your drainage and ventilation systems. A video inspection of your sewer lines</p>
+                        <ul>
+                            <li>Plumber will adjust your toilets and test them for leaks</li>
+                            <li>   Plumber put your faucets through our demanding “performance test." If they don’t pass, you’ll receive a free adjustment!</li>
+                            <li>   Exposed water lines will be checked for damages</li>
+                            <li>   Bathroom and kitchen pipes will be checked for damage</li>
+                            <li>    Drains will be checked for leaks and clogs</li>
+                            <li>   Washing machine hoses and valves will be tested</li>
+                            <li>    Plumber will flush your water heater and check for leaks or corrosion, a service that could save you hundreds in water heater replacement!</li>
+                            </ul>
+                            </ul><hr>
+            </div>
+            <div class="cateringsolution" >
+                <ul>
+                    <li><a href="#cateringsolution"></a><h2>Catering Solution</h2></li>
+                   
+                    <p>The purpose of food service is to supply palatable food prepared under acceptable standards of sanitation, aesthetically served at specified cost.</p>
+                    Catering companies provide food and beverages for a wide variety of events. Their services help delight guests and often set the tone for the experience. 
+                    Some catering companies offer customized menus while others create packages.
+                    Earno'hire website's job is to connect these customer and the companies to work to together.
+                    
+                </ul><hr>
+            </div>
+            
+            
+            <div class="housekeepers" >
+                <ul><a href="#housekeepers"></a><li><h2>House Keepers</h2></li>
+                
+                <p>Domestic work refers to housework such as sweeping, cleaning utensils, washing clothes, cooking, caring of children and such other work which is 
+                carried out for an employer for remuneration. Domestic work provides an important livelihood source for illiterate women or those with very little education.</p>
+<br>
+                Earno'hire aims to improve state of domestic workers in India.This is important because they have to suffer abuse,exploited.When India will improve from its root that's 
+                India will truly improve.
+               </ul> <hr>
+            </div>
+            <div class="roomdecorators" >
+                <ul><a href="#roomdecorators"></a><li><h2>Room decorators</h2></li>
+
+                <p>In addition to setting the tone, venue decoration can also help to create a cohesive and cohesive look and feel for the event. By using a consistent color scheme and
+                 design elements, you can help to create a cohesive look that ties the event together and makes it feel more polished and professional.</p>
+                 </ul><hr>
+            </div>
+            <div class="interiordecorators" >
+                <ul><a href="#interiordecorators"></a><li><h2>Interior Designers</h2></li>
+                <p>Interior designers make indoor spaces functional, safe, and beautiful by determining space requirements and selecting essential and decorative items, such as colors,
+                     lighting, and materials. They must be able to draw, read, and edit blueprints.</p></ul>
+            </div>
+            </div>
+
+            
+            
+    </body>
+</html>

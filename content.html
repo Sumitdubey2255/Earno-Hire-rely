@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="images/logo.ico">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="content.css"> -->
+    <!-- <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet"> -->
+    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+    <title>content</title>
+
+    <style>
+        :root{
+    --thirdcolor: #535353;
+}
+
+body{
+    background-color: white;
+    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.Mtitle{
+    margin-top: 30px;
+    font-size: 40px;
+    font-weight: 600;
+    line-height: 40px;
+    text-align: center;
+}
+
+.title1{
+    text-align: center;
+    font-size: 40px;
+    font-weight: 600;
+}
+
+.text{
+    font-size: 20px;
+    font-weight: 400;
+    margin-top: 5px;
+    padding-left: 0px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.content{
+    padding: 8vw 8vw 0 8vw;
+}
+
+.image img{
+    border-radius: 9px;
+    height: 340px;
+    width: 480px;
+    background-size: cover;
+    background-position: center;
+}
+
+.video-gallery{
+    box-sizing: border-box;
+    text-transform: capitalize;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: normal;
+}
+.heading{
+    color: #444;
+    font-size: 40px;
+    text-align: center;
+    padding: 10px;
+}
+
+.container{
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    align-items: flex-start;
+    gap: 15px;
+    padding: 5px 5%;
+}
+
+.container .main-video{
+    background: #fff;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.container .main-video video{
+    width: 100%;
+    border-radius: 5px;
+}
+
+.container .main-video .title{
+    color: #333;
+    font-size: 23px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.container .video-list{
+    background: #fff;
+    border-radius: 5px;
+    height: 520px;
+    overflow-y: scroll;
+}
+
+.container .video-list::-webkit-scrollbar{
+    width: 7px;
+}
+
+.container .video-list::-webkit-scrollbar-track{
+    background: #ccc;
+    border-radius: 50px;
+}
+
+.container .video-list::-webkit-scrollbar-thumb{
+    background: #666;
+    border-radius: 50px;
+}
+
+.container .video-list .vid video{
+    width: 100px;
+    border-radius: 5px;
+}
+
+.container .video-list .vid{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: #f7f7f7;
+    border-radius: 5px;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid rgba(0,0,0.1);
+    cursor: pointer;
+}
+
+.container .video-list .vid:hover{
+    background: #eee;
+}
+
+.container .video-list .vid.active{
+    background: #2980b9;
+}
+
+.container .video-list .vid.active .title{
+    color: #fff;
+}
+
+.container .video-list .vid .title{
+    color: #333;
+    font-size: 17px;
+}
+
+.button{
+    padding: 5px 10px;
+    width:60px;
+    background-color:  rgb(60, 138, 226);
+    color: #000000;
+    border-radius: 9px;
+}
+
+.button:hover{
+    border-style: solid;
+    background-color: #0044ff;
+    color: #000000;
+    transition: 50ms all ease-in-out;
+    padding-top: 10px 10px;
+    font-weight:30px;
+}
+
+@media (max-width:991px){
+    
+      .container{
+        grid-template-columns: 1.5fr 1fr;
+        padding: 10px;
+      }
+}
+
+@media (max-width:768px){
+    
+    .container{
+      grid-template-columns: 1fr;
+    }
+}
+/* ----------------------------------------- */
+.download-btn {
+            outline: none;
+            border: none;
+            color: #fff;
+            display: flex;
+            cursor: pointer;
+            padding: 16px 25px;
+            border-radius: 6px;
+            align-items: center;
+            white-space: nowrap;
+            background: #4A98F7;
+            transition: all 0.2s ease;
+        }
+
+        .download-btn:hover {
+            background: #2382f6;
+        }
+
+        .download-btn.timer {
+            color: #000;
+            background: none;
+            transition: none;
+            font-size: 1.6rem;
+            pointer-events: none;
+        }
+
+        .download-btn.timer b {
+            color: #4A98F7;
+            padding: 0 8px;
+        }
+
+        .download-btn .icon {
+            font-size: 2rem;
+        }
+
+        .download-btn .text {
+            font-size: 1.5rem;
+            padding-left: 10px;
+        }
+ /* --------------------------------------------------------------------------- */
+ body{
+            background-color: var(--black);
+            background-attachment: fixed;
+        }
+        .logo{
+            margin-top: 20px;
+            margin-left: 20px;
+        }
+        header{
+            backdrop-filter: blur(10px);
+            position: fixed;
+            height: 80px;
+            z-index: 999;
+        }
+        .navbar{
+            float:right;
+            text-decoration: none;
+            margin-top: -65px;
+            margin-left: 600px;
+        
+        }
+        .navbar a{
+            margin-left: 10px;
+            background-color: #111;
+            padding: 10px 15px;
+            font-weight: 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            color:white;
+            
+
+        }
+        .navbar a:hover{
+            border-style: solid;
+            background-color: #FFFEEB;
+            color:black;
+            border-color:#111;
+            transition: 50ms all ease-in-out;
+            padding-top: 14px 24px;
+            font-weight: 40px;
+        }
+
+
+    </style>
+
+
+
+
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <img src="images/Earnohire2.png" alt="">
+        </div>
+        <br/>
+        <div class="navbar">
+            <a href="#" class="active">Home</a>
+            <a href="Knowmore.html">About Us</a>
+            <a href="services.php">Services</a>
+            <a href="blog_in.php">Blog</a>
+            <a href="sps.php">Certified FreeLancers</a>
+            <a href="user_profile.php">My Account</a>
+            <a href="contact.html">Contact</a>
+            <a href="home.php?logout=<?php echo $user_id; ?>" onclick="return confirm('are your sure you want to logout?');" class="delete-btn">Log Out</a>
+        </div>
+    </header>
+    <div class="content">
+        <div class="Mtitle">
+            <h1>Electrician</h1>
+        </div>
+        
+    
+        <p class="title1">Basic Knowledge to have a Electrician</p>
+    
+        
+        <center>
+            <p class="text">
+            The ability to install cables, conduits, tubing, and switching devices. How to use appropriate power tools. <br> The
+            knowledge to read and understand blueprints. Understand all procedures and electrical safety rules. <br>
+        </p>
+        <div class="image">
+            <img src="./images/Electrician.jpg">
+        </div>
+        </center>
+
+        <p class="text">
+            An electrical network is an interconnection of electrical components (e.g., batteries, resistors, inductors,<br>
+            capacitors, switches, transistors) or a model of such an interconnection, consisting of electrical elements <br>
+            (e.g., voltage sources, current sources, resistances, inductances, capacitances). An electrical circuit is a <br>
+            network consisting of a closed loop, giving a return path for the current. Linear electrical networks, a special <br>
+            type consisting only of sources (voltage or current), linear lumped elements (resistors, capacitors, inductors),<br>
+            and linear distributed elements (transmission lines), have the property that signals are linearly <br>
+            superimposable. They are thus more easily analyzed, using powerful frequency domain methods such as Laplace  <br>
+            transforms, to determine DC response, AC response, and transient response. <br>
+        </p>
+
+       
+   
+
+            <section class="video-gallery">
+                <h3 class="heading">Video Gallery</h3>
+
+            <div class="container">
+
+                <div class="main-video">
+                    <div class="video">
+                        <video src="./video/video1.mp4" controls muted autoplay></video>
+                        <h3 class="title">01. video title goes here</h3>
+                    </div>
+                </div>
+
+                <div class="video-list">
+                    <div class="vid active">
+                        <video src="images/video1.mp4" muted></video>
+                        <h3 class="title">01. video title goes here</h3>
+                    </div>
+                    <div class="vid">
+                        <video src="images/video1.mp4" muted></video>
+                        <h3 class="title">02. video title goes here</h3>
+                    </div>
+                    <div class="vid">
+                        <video src="images/video1.mp4" muted></video>
+                        <h3 class="title">03. video title goes here</h3>
+                    </div>
+                    <div class="vid">
+                        <video src="images/video1.mp4" muted ></video>
+                        <h3 class="title">04. video title goes here</h3>
+                    </div>
+                    <div class="vid">
+                        <video src="images/video1.mp4" muted ></video>
+                        <h3 class="title">05. video title goes here</h3>
+                    </div>
+                    <div class="vid">
+                        <video src="images/video1.mp4" muted ></video>
+                        <h3 class="title">06. video title goes here</h3>
+                    </div>
+                    <div class="vid">
+                        <video src="images/video1.mp4" muted ></video>
+                        <h3 class="title">07. video title goes here</h3>
+                    </div>
+                    <div class="vid">
+                        <video src="images/video1.mp4" muted ></video>
+                        <h3 class="title">08. video title goes here</h3>
+                    </div>
+                </div>
+            </div>
+            <button class="download-btn" data-timer="10">
+                <!-- <span class="icon material-symbols-rounded">vertical_align_bottom</span> -->
+                <span class="text">Download Files</span>
+                
+            </button>
+            
+                <br/>
+                <br/>
+                <a href="#" class="download-btn" id="go-back" style="width: 50px; text-decoration: none;">Back   </a> 
+        
+        </section>
+
+        <script>
+            let listVideo = document.querySelectorAll('.video-list .vid');
+            let mainVideo = document.querySelector('.main-video video');
+            let title = document.querySelector('.main-video .title');
+
+            listVideo.forEach(video => {
+                video.onclick = () => {
+                    listVideo.forEach(vid => vid.classList.remove('active'));
+                    video.classList.add('active');
+                    if(video.classList.contains('active')){
+                        let src = video.children[0].getAttribute('src');
+                        mainVideo.src = src;
+                        let text = video.children[1].innerHTML;
+                        title.innerHTML = text;
+                    };
+                };
+            });
+
+            // -----------------------------------------------------------------
+            const downloadBtn = document.querySelector(".download-btn");
+        const fileLink = "https://drive.google.com/uc?export=download&id=1aYiaLn3YOjL-_o5QBCy7tU1epqA6gZoi";
+
+        const initTimer = () => {
+            if (downloadBtn.classList.contains("disable-timer")) {
+                return location.href = fileLink;
+            }
+
+            let timer = downloadBtn.dataset.timer;
+            downloadBtn.classList.add("timer");
+            downloadBtn.innerHTML = `Your download will begin in <b>${timer}</b> seconds`;
+            const initCounter = setInterval(() => {
+                if (timer > 0) {
+                    timer--;
+                    return downloadBtn.innerHTML = `Your download will begin in <b>${timer}</b> seconds`;
+                }
+                clearInterval(initCounter);
+                location.href = fileLink;
+                downloadBtn.innerText = "Your file is downloading...";
+                setTimeout(() => {
+                    downloadBtn.classList.replace("timer", "disable-timer");
+                    downloadBtn.innerHTML = `<span class="icon material-symbols-rounded">vertical_align_bottom</span>
+                                     <span class="text">Download Again</span>`;
+                }, 3000);
+            }, 1000);
+        }
+        downloadBtn.addEventListener("click", initTimer);
+        // ----------------------------------------------------------
+        document.getElementById('go-back').addEventListener('click', () => {
+        history.back();
+    })
+        </script>
+
+   
+</body>
+
+</html>

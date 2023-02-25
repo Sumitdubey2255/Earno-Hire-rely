@@ -1,0 +1,506 @@
+<?php
+require 'config.php';
+
+if(isset($_POST['submit'])){
+
+   $name = mysqli_real_escape_string($conn, $_POST['name']);
+   $email = mysqli_real_escape_string($conn, $_POST['email']);
+   $pass = mysqli_real_escape_string($conn,$_POST['pass']);
+   $cpass = mysqli_real_escape_string($conn,$_POST['cpass']);
+   $user_type =  mysqli_real_escape_string($conn,$_POST['user_type']);
+   $address =  mysqli_real_escape_string($conn,$_POST['address']);
+   $city =  mysqli_real_escape_string($conn,$_POST['city']);
+   $image = $_FILES['image']['name'];
+   $image_size = $_FILES['image']['size'];
+   $image_tmp_name = $_FILES['image']['tmp_name'];
+   $image_folder = 'uploaded_img/'.$image;
+
+   $select = mysqli_query($conn, "SELECT * FROM `user` WHERE email = '$email' AND password = '$pass'");
+
+   if(mysqli_num_rows($select) > 0){
+      $message[] = 'user already exist'; 
+      echo
+      "<script> alert('Username or email has already taken'); </script>";
+
+   }
+   else{
+      if($pass != $cpass){ 
+         echo
+         "<script> alert('Password does not match'); </script>";
+         $message[] = 'confirm password not matched!';
+        
+      }elseif($image_size > 2000000){
+         $message[] = 'image size is too large!';
+      }else{
+         // to check user is sp or user so that data insertion process will begins....
+
+         if($user_type == 'service_provider'){
+            $insert = mysqli_query($conn, "INSERT INTO `sp` (sp_name, sp_email, sp_password, user_type, sp_image,sp_address,sp_city) VALUES('$name', '$email', '$pass','$user_type', '$image','$address', '$city')") or die('query failed');
+
+            if($insert){
+               move_uploaded_file($image_tmp_name, $image_folder);
+               echo
+               "<script> alert('Registration Successful\nYou need To login..'); </script>";
+               $message[] = 'registered successfully!';
+               header('location: login.php');
+            }else{
+               $message[] = 'registeration failed!';
+            }
+   
+         }else if($user_type == 'user'){
+            $insert2 = mysqli_query($conn, "INSERT INTO `user` (name, email, password, user_type, image,city,address) VALUES('$name', '$email', '$pass','$user_type', '$image','$city','$address')") or die('query failed');
+
+         if($insert2){
+            move_uploaded_file($image_tmp_name, $image_folder);
+            
+            echo
+            "<script> alert('Registration Successful\nYou need To login..'); </script>";
+            $message[] = 'registered successfully!';
+            header('location: login.php');
+         }else{
+            $message[] = 'registeration failed!';
+         }
+   
+         }
+        
+      }
+   }
+
+}
+
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" href="images/logo.ico">
+    <meta charset="UTF-8">
+    <link rel="icon" href="./images/logo.ico" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/2cdc9fa11a.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/fontawesome.min.css">
+        <title>Register..</title>
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+            *{
+                padding: 0;
+                margin: 0;
+                box-sizing: border-box;
+            }
+
+            body{
+                font-family: 'Poppins', sans-serif;
+                overflow: hidden;
+            }
+            
+            .message{
+                position: sticky;
+                top:0; left:0; right:0;
+                padding:15px 10px;
+                background-color: var(--white);
+                text-align: center;
+                z-index: 1000;
+                box-shadow: var(--box-shadow);
+                color:var(--black);
+                font-size: 20px;
+                text-transform: capitalize;
+                cursor: pointer;
+            }
+            a{
+                text-decoration: none;
+                color: unset;
+            }
+            a:hover{
+                color: #3ac6e1 !important;
+            }
+            .container{
+                width: 100vw;
+                height: 100vh;
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                padding: 0 2rem;
+            }
+            .img{
+                width: 100%;
+                height: 100vh;
+                display: flex;
+                justify-content: flex-end;
+                align-items: center;
+            }
+            .img img{
+                width: 500px;
+            }
+            .video{
+                margin-left:200px;
+                z-index:-1;
+            }
+
+            .login-content{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+                margin-left: -200px;
+            }
+            .title-container{
+                text-align: left;
+                padding-bottom: 40px;
+            }
+            .title-container h1{
+                color: #3ac6e1;
+                font-size: 30px;
+                font-weight: 600;
+            }
+            .title-container h2{
+                font-size: 30px;
+                font-weight: 600;
+                text-transform: none;
+                margin: 2px 0;
+            }
+            .title-container p{
+                font-size: 15px;
+                font-weight: 500;
+                color: #c0c0c0;
+            }
+            .login-inner-content{
+                padding-top: 5px;
+                padding-right: 10px;
+                padding-bottom: 20px;
+                padding-left: 10px;
+                border-radius: 10px;
+                box-shadow: 0px 0px 26px -6px rgba(0,0,0,0.10);
+            }
+            .login-content .input-div{
+                position: relative;
+                display: grid;
+                grid-template-columns: 7% 93%;
+                margin: 5px;
+                padding: 5px 0;
+                border-bottom: 2px solid #d9d9d9;
+            }
+            .login-content .input-div.one{
+                margin-top: 0;
+            }
+
+            .i{
+                color: #d9d9d9;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            .i i{
+                transition: .3s;
+            }
+            .input-div > div{
+                position: relative;
+                height: 45px;
+            }
+            .input-div > div{
+                position: relative;
+                height: 45px;
+            }
+            .input-div > div > h5{
+                position: absolute;
+                left: 10px;
+                top: 50%;
+                transform: translateY(-50%);
+                color: #999;
+                font-size: 15px;
+                transition: .3s;
+                font-weight: 500;
+            }
+
+            .input-div .box{
+                width: 100%;
+                border-radius: 5px;
+                color: #000;
+                border: #999;;
+                padding:5px 5px;
+                font-size: 15px;
+                margin:5px 0;
+            }
+            .input-div:before, .input-div:after{
+                content: '';
+                position: absolute;
+                bottom: -2px;
+                width: 0%;
+                height: 2px;
+                background-color: #3ac6e1;
+                transition: .4s;
+            }
+            .input-div:before{
+                right: 50%;
+            }
+            .input-div:after{
+                left: 50%;
+            }
+            .input-div.focus:before, .input-div.focus:after{
+                width: 50%;
+            }
+
+            .input-div.focus > div > h5{
+                top: 3px;
+                font-size: 10px;
+                font-weight: 500;
+            }
+            .input-div > div > input{
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                border: none;
+                outline: none;
+                background: none;
+                padding: 0.5rem 0.7rem;
+                font-size: 15px;
+                color: #555;
+                font-family: 'poppins', sans-serif;
+            }
+            .input-div.pass{
+                margin-bottom: 4px;
+            }
+            .login-inner-content a{
+                display: block;
+                text-align: right;
+                color: rgb(0, 0, 0);
+                margin-top: 10px;
+                font-size: 10px;
+                font-weight: 600;
+                transition: .3s;
+            }
+            .btn{
+                display: block;
+                width: 100%;
+                height: 50px;
+                border-radius: 50px;
+                outline: none;
+                border: none;
+                background-image: linear-gradient(to right, #5bdffa, #36cbe9, #5bdffa );
+                background-size: 200%;
+                font-size: 1.2rem;
+                color: #fff;
+                font-family: 'poppins',sans-serif;
+                margin: 1rem 0;
+                cursor: pointer;
+                transition: .5s;
+            }
+            .btn:hover{
+                background-position: right;
+            }
+
+            h5{
+                font-size: 12px;
+                font-weight: 600;
+            }
+
+
+            /* Mobile Responsive */
+
+            @media screen and (max-width: 1050px){
+                .container{
+                    grid-gap: 5rem;
+                }
+            }
+            @media screen and (max-width: 1000px){
+            .title-container h2{
+                font-size: 25px !important;
+            }
+            form{
+                width: 290px;
+            }
+            .login-content h2{
+                font-size: 2.4rem;
+                margin: 8px 0;
+            }
+            .img img{
+                width: 400px;
+            }
+            }
+            @media screen and (max-width: 900px){
+                .container{
+                    grid-template-columns: 1fr;
+                }
+                .img{
+                    display: none;
+
+                }
+                .video{
+                    display:none;
+                }
+                .login-content{
+                    justify-content: center;
+                    margin-left: 0px;
+                }
+            }
+        </style>
+</head>
+<body>
+    <div class="container">
+        <div class="video">
+            <video width="800" height="800" autoplay loop muted>
+                <source src="./images/a.mp4" alt="BG" type="video/mp4" />
+            </video>
+        </div>
+        <div class="login-content">
+            <form action=""  method="post" enctype="multipart/form-data">
+                <div class="title-container">
+                    <h1>Register</h1>
+                    <h2>Hello, Friends!</h2>
+                    <p>Enter your personal detail and start journey with us.</p>
+                </div>
+                <?php
+                if(isset($message)){
+                    foreach($message as $message){
+                    echo '<div class="message">'.$message.'</div>';
+                    }
+                }
+                ?>
+                <div class="login-inner-content">
+           
+                    <div class="input-div one">
+                        <div class="i">
+                            <i class="far fa-user-circle"></i>
+                        </div>
+                        <div class="div">
+                            <h5>Name</h5>
+                            <input type="text" name="name" class="input">
+                        </div>
+                    </div>
+                    <div class="input-div one">
+                        <div class="i">
+                            <i class="far fa-user-circle"></i>
+                        </div>
+                        <div class="div">
+                            <h5>Email</h5>
+                            <input type="text" name="email" class="input">
+                        </div>
+                    </div>
+                    <div class="input-div pass">
+                        <div class="i">
+                            <i class="fas fa-eye" onclick="show()"></i>
+                        </div>
+                        <div class="div">
+                            <h5>Password</h5>
+                            <input id="pswrd" type="password" name="pass" class="input">
+                        </div>
+                    </div>
+                    <div class="input-div pass">
+                        <div class="i">
+                            <i class="fas fac fa-eye" onclick="c_show()"></i>
+                        </div>
+                        <div class="div">
+                            <h5> Confirm Password</h5>
+                            <input id="cpswrd" type="password" name="cpass" class="input">
+                        </div>
+                    </div>
+                    <div class="input-div one">
+                        <div class="i">
+                            <i class="far fa-user-circle"></i>
+                        </div>
+                        <div class="div">
+                            <!-- <h5>Select photo</h5> -->
+                            <input type="file" name="image" class="box" accept="image/jpg, image/jpeg, image/png">
+                        </div>
+                    </div>         
+                    <div class="input-div one">
+                        <div class="i">
+                            <i class="far fa-user-circle"></i>
+                        </div>
+                        <div class="div">
+                            <!-- <h5>UserType</h5> -->
+                            <select name="user_type" class="box">
+                                <option  value="" disabled selected hidden>Select Type of User</option>
+                                <option  value="user">User</option>
+                                <option  value="service_provider">Service Provider</option>
+                            </select>
+                            <br/>
+                        </div>
+                    </div>
+                    
+                    <div class="input-div one">
+                        <div class="i">
+                            <i class="far fa-user-circle"></i>
+                        </div>
+                        <div class="div">
+                            <input type="text" name="address" placeholder="enter your full address" class="box">
+                        </div>
+                    </div>
+                    <div class="input-div one">
+                        <div class="i">
+                            <i class="far fa-user-circle"></i>
+                        </div>
+                        <div class="div">
+                            <!-- <h5>UserType</h5> -->
+                            <select name="city" class="box">
+                                <option value="" disabled selected hidden>Select city</option>
+                                <option value="thane">Thane</option>
+                                <option value="mumbai">Mumbai</option>
+                                <option value="delhi">Delhi</option>
+                                <option value="panjab">Panjab</option>
+                            </select>
+                            <br/>
+                        </div>
+                    </div>
+                    <!-- <a href="#">Forgot password / Username</a> -->
+                </div>
+                <input type="submit"  name="submit" class="btn" value="Register">
+                <h5>Already a member ? <a href="./login.php">Login Now</a></h5>
+            </form>
+        </div>
+    </div>
+    <script>
+        const inputs = document.querySelectorAll(".input");
+
+        function addcl(){
+            let parent = this.parentNode.parentNode;
+            parent.classList.add("focus");
+        }
+
+        function remcl(){
+            let parent = this.parentNode.parentNode;
+            if(this.value == ""){
+                parent.classList.remove("focus");
+            }
+        
+        }
+
+        inputs.forEach(input => {
+            input.addEventListener("focus", addcl);
+            input.addEventListener("blur", remcl)
+        });
+
+
+        // See Password
+
+        function show() {
+            var pswrd = document.getElementById('pswrd');
+            var icon = document.querySelector('.fas');
+            if (pswrd.type === "password") {
+                pswrd.type = "text";
+                icon.style.color = "#4dd8f3";
+            } else{
+                pswrd.type = "password";
+                icon.style.color = "#d9dde4";
+            }
+
+
+        }
+        function c_show() {
+            var cpswrd = document.getElementById('cpswrd');
+            var cicon = document.querySelector('.fac');
+            if (cpswrd.type === "password") {
+                cpswrd.type = "text";
+                cicon.style.color = "#4dd8f3";
+            } else{
+                cpswrd.type = "password";
+                cicon.style.color = "#d9dde4";
+            }
+
+
+        }
+    </script>
+</body>
+</html>
+<!-- 
+         <input type="file" name="image" class="box" accept="image/jpg, image/jpeg, image/png"> -->
